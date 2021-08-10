@@ -2,190 +2,225 @@
 @import "./variables";
 
 * {
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
 }
 
 a {
-    text-decoration: none;
-    color: unset;
+  text-decoration: none;
+  color: unset;
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 body {
-    font-family: Spartan;
-    display: grid;
-    height: 100vh;
-    grid-template:
-        "main-image     main-image   main-text   main-text" 2.5fr
-        "main-image     main-image   navigation  ........." auto
-        "bottom-left    detail-text  detail-text bottom-right" 1fr /
-        1fr 1fr auto 1fr;
-    place-items: center;
+  font-family: Spartan;
+  display: grid;
+  height: 100vh;
+  grid-template:
+    "main-image     main-image   main-text   main-text" 2.5fr
+    "main-image     main-image   navigation  ........." auto
+    "bottom-left    detail-text  detail-text bottom-right" 1fr /
+    1fr 1fr auto 1fr;
+  place-items: center;
 }
 
 p {
-    color: var(--dark-gray, darkgrey);
+  color: var(--dark-gray, darkgrey);
 }
 
 h1,
 h2 {
-    color: var(--black, black);
+  color: var(--black, black);
 }
 
 nav {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    gap: 2.5rem;
-    padding: 1rem;
-    color: var(--white, white);
+  z-index: 10;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 1rem;
+  color: var(--white, white);
 
-    .hamburger {
-        display: none;
-    }
-    ul {
-        list-style: none;
-        display: flex;
-        gap: 1.5rem;
-        li:first-child {
-            a:first-child {
-                position: relative;
-                font-weight: 600;
-                &:after {
-                    position: absolute;
-                    content: "";
-                    height: 2px;
-                    width: 50%;
-                    bottom: -5px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    background: var(--white, white);
-                }
-            }
+  .hamburger {
+    display: none;
+  }
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    li:first-child {
+      a:first-child {
+        position: relative;
+        font-weight: 600;
+        &:after {
+          position: absolute;
+          content: "";
+          height: 2px;
+          width: 50%;
+          bottom: -5px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: var(--white, white);
         }
+      }
     }
+  }
 }
 
-.main-image {
+.carousel-container {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  overflow: hidden;
+  .carousel-item {
+    transition: transform 0.5s ease-in;
+    width: 100%;
+    flex-shrink: 0;
+    z-index: -1;
+  }
+}
+.container-main-image {
+  grid-area: main-image;
+  height: 100%;
+  width: 100%;
+  .main-image {
     padding-top: 150px;
-    grid-area: main-image;
-    background-image: url("../images/desktop-image-hero-1.jpg");
+    height: 100%;
+    width: 100%;
+    &.first-image {
+      background-image: url("../images/desktop-image-hero-1.jpg");
+    }
+    &.second-image {
+      background-image: url("../images/desktop-image-hero-2.jpg");
+    }
+    &.third-image {
+      background-image: url("../images/desktop-image-hero-3.jpg");
+    }
+  }
 }
 
 .main-text {
-    grid-area: main-text;
-    max-width: 80%;
-    display: flex;
-    flex-direction: column;
-    h1 {
+  grid-area: main-text;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .container-main-text {
+    .content-main-text {
+      padding: 0 10%;
+      h1 {
         margin-bottom: 20px;
         font-weight: 800;
         font-size: 3em;
+      }
     }
-    .shop-now {
-        color: var(--black, black);
-        fill: var(--black, black);
-        margin-top: 2rem;
-        text-transform: uppercase;
-        letter-spacing: 0.5em;
-        white-space: nowrap;
-        svg {
-            margin-left: 1.5em;
-        }
+  }
+  .shop-now {
+    color: var(--black, black);
+    fill: var(--black, black);
+    display: block;
+    padding-left: 10%;
+    margin-top: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    white-space: nowrap;
+    svg {
+      margin-left: 1.5em;
+    }
 
-        &:hover {
-            color: var(--dark-gray, darkgrey);
-            fill: var(--dark-gray, darkgrey);
-        }
+    &:hover {
+      color: var(--dark-gray, darkgrey);
+      fill: var(--dark-gray, darkgrey);
     }
+  }
 }
 
 .navigation {
-    grid-area: navigation;
-    display: flex;
+  grid-area: navigation;
+  display: flex;
 }
 
 .bottom-left-image {
-    grid-area: bottom-left;
-    background-image: url("../images/image-about-dark.jpg");
+  grid-area: bottom-left;
+  background-image: url("../images/image-about-dark.jpg");
 }
 
 .detail-text {
-    grid-area: detail-text;
-    max-width: 80%;
-    h2 {
-        margin-bottom: 10px;
-        font-weight: 600;
-        font-size: 2.5em;
-    }
+  grid-area: detail-text;
+  max-width: 80%;
+  h2 {
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 2.5em;
+  }
 }
 
 .bottom-right-image {
-    grid-area: bottom-right;
-    background-image: url("../images/image-about-light.jpg");
+  grid-area: bottom-right;
+  background-image: url("../images/image-about-light.jpg");
 }
 
 .image {
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-    min-height: 300px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
 }
 
 .navigation-button {
-    height: 100px;
-    width: 100px;
-    border: none;
-    background: var(--black, black);
+  height: 100px;
+  width: 100px;
+  border: none;
+  background: var(--black, black);
 
-    &:hover {
-        background: var(--very-dark-gray);
-    }
+  &:hover {
+    background: var(--very-dark-gray);
+  }
 }
 
 @media (max-width: 750px) {
-    body {
-        grid-template:
-            "main-image"
-            "navigation"
-            "main-text"
-            "bottom-left"
-            "detail-text"
-            "bottom-right";
-        gap: 5rem 0;
-    }
+  body {
+    grid-template:
+      "main-image"
+      "navigation"
+      "main-text"
+      "bottom-left"
+      "detail-text"
+      "bottom-right";
+    gap: 5rem 0;
+  }
 
-    nav {
-        width: 100%;
-        ul {
-            flex:1;
-            li {
-                display:none;
-            }
-        }
-        .hamburger {
-            display: block;
-            flex: 1;
-        }
+  nav {
+    width: 100%;
+    ul {
+      flex: 1;
+      li {
+        display: none;
+      }
     }
+    .hamburger {
+      display: block;
+      flex: 1;
+    }
+  }
 
-    .navigation {
-        place-self: flex-end;
-        .navigation-button {
-            height: 70px;
-            width: 70px;
-        }
+  .navigation {
+    place-self: flex-end;
+    .navigation-button {
+      height: 70px;
+      width: 70px;
     }
+  }
 
-    .main-image {
-        grid-row: 1 / span 2;
-        min-height: 50vh;
-    }
+  .container-main-image {
+    grid-row: 1 / span 2;
+    min-height: 50vh;
+  }
 }

@@ -43,6 +43,7 @@ h2 {
 }
 
 nav {
+  z-index: 10;
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -84,15 +85,54 @@ nav ul li:first-child a:first-child:after {
   background: var(--white, white);
 }
 
-.main-image {
-  padding-top: 150px;
+.carousel-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-container .carousel-item {
+  -webkit-transition: -webkit-transform 0.5s ease-in;
+  transition: -webkit-transform 0.5s ease-in;
+  transition: transform 0.5s ease-in;
+  transition: transform 0.5s ease-in, -webkit-transform 0.5s ease-in;
+  width: 100%;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  z-index: -1;
+}
+
+.container-main-image {
   grid-area: main-image;
+  height: 100%;
+  width: 100%;
+}
+
+.container-main-image .main-image {
+  padding-top: 150px;
+  height: 100%;
+  width: 100%;
+}
+
+.container-main-image .main-image.first-image {
   background-image: url("../images/desktop-image-hero-1.jpg");
+}
+
+.container-main-image .main-image.second-image {
+  background-image: url("../images/desktop-image-hero-2.jpg");
+}
+
+.container-main-image .main-image.third-image {
+  background-image: url("../images/desktop-image-hero-3.jpg");
 }
 
 .main-text {
   grid-area: main-text;
-  max-width: 80%;
+  max-width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -102,7 +142,11 @@ nav ul li:first-child a:first-child:after {
           flex-direction: column;
 }
 
-.main-text h1 {
+.main-text .container-main-text .content-main-text {
+  padding: 0 10%;
+}
+
+.main-text .container-main-text .content-main-text h1 {
   margin-bottom: 20px;
   font-weight: 800;
   font-size: 3em;
@@ -111,6 +155,8 @@ nav ul li:first-child a:first-child:after {
 .main-text .shop-now {
   color: var(--black, black);
   fill: var(--black, black);
+  display: block;
+  padding-left: 10%;
   margin-top: 2rem;
   text-transform: uppercase;
   letter-spacing: 0.5em;
@@ -203,7 +249,7 @@ nav ul li:first-child a:first-child:after {
     height: 70px;
     width: 70px;
   }
-  .main-image {
+  .container-main-image {
     -ms-grid-row: 1;
     -ms-grid-row-span: 2;
     grid-row: 1 / span 2;

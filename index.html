@@ -8,6 +8,7 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="./styles/index.css">
+  <script src="js/index.js" defer></script>
 
   <title>Frontend Mentor | Room homepage</title>
 </head>
@@ -15,7 +16,7 @@
 <body>
   <nav>
     <div class="hamburger">
-      <svg width="20" height="14" xmlns="http://www.w3.org/2000/svg" >
+      <svg width="20" height="14" xmlns="http://www.w3.org/2000/svg">
         <path d="M20 12v2H0v-2h20zm0-6v2H0V6h20zm0-6v2H0V0h20z" fill="currentColor" fill-rule="evenodd" />
       </svg>
     </div>
@@ -50,19 +51,50 @@
     </ul>
   </nav>
 
-  <div class="main-image image">
-
+  <div class="container-main-image  carousel-container">
+    <div class="main-image image first-image carousel-item">
+    </div>
+    <div class="main-image image second-image carousel-item">
+    </div>
+    <div class="main-image image third-image carousel-item">
+    </div>
   </div>
 
+
   <div class="main-text">
-    <h1>
-      Discover innovative ways to decorate
-    </h1>
-    <p>
-      We provide unmatched quality, comfort, and style for property owners across the country.
-      Our experts combine form and function in bringing your vision to life. Create a room in your
-      own style with our collection and make your property a reflection of you and what you love.
-    </p>
+    <div class="container-main-text carousel-container">
+
+      <div class="content-main-text carousel-item">
+        <h1>
+          Discover innovative ways to decorate
+        </h1>
+        <p>
+          We provide unmatched quality, comfort, and style for property owners across the country.
+          Our experts combine form and function in bringing your vision to life. Create a room in your
+          own style with our collection and make your property a reflection of you and what you love.
+        </p>
+      </div>
+      <div class="content-main-text carousel-item">
+        <h1>
+          We are available all across the globe
+        </h1>
+        <p>
+          With stores all over the world, it's easy for you to find furniture for your home or place of business.
+          Locally, we’re in most major cities throughout the country. Find the branch nearest you using our
+          store locator. Any questions? Don't hesitate to contact us today. </p>
+      </div>
+      <div class="content-main-text carousel-item">
+        <h1>
+          Manufactured with the best materials
+        </h1>
+        <p>
+
+          Our modern furniture store provide a high level of quality. Our company has invested in advanced technology
+          to ensure that every product is made as perfect and as consistent as possible. With three decades of
+          experience in this industry, we understand what customers want for their home and office.
+        </p>
+      </div>
+    </div>
 
     <a href="#" class="shop-now">
       Shop now
@@ -75,12 +107,12 @@
   </div>
 
   <div class="navigation">
-    <button class="navigation-button">
+    <button class="navigation-button" id="left-carousel">
       <svg width="14" height="24" xmlns="http://www.w3.org/2000/svg">
         <path d="M13 0L1 12l12 12" stroke="#FFF" fill="none" fill-rule="evenodd" />
       </svg>
     </button>
-    <button class="navigation-button">
+    <button class="navigation-button" id="right-carousel">
       <svg width="14" height="24" xmlns="http://www.w3.org/2000/svg">
         <path d="M1 0l12 12L1 24" stroke="#FFF" fill="none" fill-rule="evenodd" />
       </svg>
@@ -107,25 +139,6 @@
   <div class="bottom-right-image image">
 
   </div>
-
-
-
-  <!--We are available all across the globe
-
-  With stores all over the world, it's easy for you to find furniture for your home or place of business.
-  Locally, we’re in most major cities throughout the country. Find the branch nearest you using our
-  store locator. Any questions? Don't hesitate to contact us today.
-
-  Shop now
-
-  Manufactured with the best materials
-
-  Our modern furniture store provide a high level of quality. Our company has invested in advanced technology
-  to ensure that every product is made as perfect and as consistent as possible. With three decades of
-  experience in this industry, we understand what customers want for their home and office.
-
-  Shop now
-  -->
 
 </body>
 
