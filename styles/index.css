@@ -255,5 +255,8 @@ nav ul li:first-child a:first-child:after {
     grid-row: 1 / span 2;
     min-height: 50vh;
   }
+  .main-text {
+    max-width: 100vw;
+  }
 }
 /*# sourceMappingURL=index.css.map */
