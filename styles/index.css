@@ -54,6 +54,8 @@ nav {
   gap: 2.5rem;
   padding: 1rem;
   color: var(--white, white);
+  top: 0;
+  left: 0;
 }
 
 nav .hamburger {
@@ -224,6 +226,9 @@ nav ul li:first-child a:first-child:after {
   body {
     grid-template: "main-image" "navigation" "main-text" "bottom-left" "detail-text" "bottom-right";
     gap: 5rem 0;
+  }
+  h1 {
+    font-size: 2em;
   }
   nav {
     width: 100%;
