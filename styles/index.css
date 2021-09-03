@@ -227,7 +227,7 @@ nav ul li:first-child a:first-child:after {
     grid-template: "main-image" "navigation" "main-text" "bottom-left" "detail-text" "bottom-right";
     gap: 5rem 0;
   }
-  h1 {
+  .main-text .container-main-text .content-main-text h1 {
     font-size: 2em;
   }
   nav {
